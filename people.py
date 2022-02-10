@@ -3,10 +3,7 @@ from data import *
 import string
 
 class People:
-    
-    def __init__(self):
-        create(self)
-        
+
     def create(self):
         self.givenName = random.choice(givenName)
         self.familyName = random.choice(familyName)
@@ -21,11 +18,16 @@ class People:
         self.duration = random.randint(3,30)
         self.tag = 'people'
 
+    def __init__(self):
+        self.create()
+        
+    
+
         
 class Expired(People):
     
     def __init__(self):
-        create(self)
+        self.create()
         self.pExpDate = f'{date[0] + random.randint(1,4)}/{date[1] + random.randint(0,2)}/{date[2] + random.randint(0,1)}'
         self.tag = 'expired'
 
@@ -33,7 +35,7 @@ class Expired(People):
 class Imposter(People):
     
     def __init__(self):
-        create(self)
+        self.create()
         self.pGivenName = imposterName[random.randint(0,len(imposterName)-1)]
         self.tag = 'imposter'
 
@@ -41,6 +43,6 @@ class Imposter(People):
 class Identity(People):
     
     def __init__(self):
-        create(self)
+        self.create()
         self.pId = ''.join(random.choices(string.ascii_uppercase, k=8))
         self.tag = 'identity'
