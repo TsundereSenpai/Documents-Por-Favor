@@ -1,0 +1,2 @@
+language = "bash"
+run = "(python3.10 --version || install-pkg python3.10) && pip3 install colorama && clear && python3.10 main.py"
